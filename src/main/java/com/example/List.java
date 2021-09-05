@@ -5,16 +5,16 @@ import java.util.NoSuchElementException;
 public class List {
 
     private class Node {
-        private int value;
-        private Node next;
+        public int value;
+        public Node next;
 
         public Node(int value) {
             this.value = value;
         }
     }
 
-    private Node first;
-    private Node last;
+    public Node first;
+    public Node last;
     private int size;
 
     public void addLast(int item) {
@@ -94,6 +94,22 @@ public class List {
         return  array;
     }
 
+    public void reverse(){
+        if(isEmpty()) return;
+        Node previous = first;
+        Node current = previous.next;
+        while (current != null){
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        last = first;
+        last.next = null;
+        first = previous;
+
+    }
+
     private Node getPrevious(Node node){
         Node current = first;
         while(current != null){
@@ -102,6 +118,21 @@ public class List {
             current = current.next;
         }
         return null;
+    }
+    public int getKthfromTheEnd(int k){
+
+        if (isEmpty()) throw new IllegalStateException();
+        Node a = first;
+        Node b = first;
+        for (int i = 0; i < k-1;i++){
+            b = b.next;
+            if (b == null) throw new IllegalArgumentException();
+        }
+        while(b.next != null){
+            a = a.next;
+            b = b.next;
+        }
+        return a.value;
     }
 
     private boolean isEmpty() {
