@@ -15,6 +15,7 @@ public class List {
 
     private Node first;
     private Node last;
+    private int size;
 
     public void addLast(int item) {
         Node node = new Node(item);
@@ -25,7 +26,7 @@ public class List {
             last.next = node;
             last = node;
         }
-
+        size++;
     }
     public void addFirst ( int item){
         Node node = new Node(item);
@@ -36,6 +37,7 @@ public class List {
             node.next = first;
             first = node;
         }
+        size++;
 
     }
     public int indexOf(int item) {
@@ -50,15 +52,14 @@ public class List {
     }
     public void removeFirst(){
         if(isEmpty()) throw new NoSuchElementException();
-        if (first == last){
+        if (first == last)
             first = last = null;
-            return;
+        else{
+            Node second = first.next;
+            first.next = null;
+            first =second;
         }
-
-        Node second = first.next;
-        first.next = null;
-        first =second;
-
+        size --;
     }
 
     public boolean contains(int item){
@@ -66,26 +67,42 @@ public class List {
     }
 
 
-    public void removeLast(Node node){
+    public void removeLast(){
+        if(isEmpty()) throw new NoSuchElementException();
+
         Node previous =  getPrevious(last);
-        if (first == last){
+        if (first == last)
             first = last = null;
-            return;
+        else {
+            last = previous;
+            previous.next = null;
         }
-        last = previous;
-        previous.next = null;
+
+        size--;
     }
+    public int size(){
+    return size;
+    }
+    public int[] toArray(){
+        int[] array = new int[size];
+        Node current = first;
+        int index = 0;
+        while (current != null){
+            array[index++] = current.value;
+            current = current.next;
+        }
+        return  array;
+    }
+
     private Node getPrevious(Node node){
         Node current = first;
         while(current != null){
-            if(current == node)
+            if(current.next == node)
             return current;
             current = current.next;
         }
         return null;
     }
-
-
 
     private boolean isEmpty() {
         return first == null;
