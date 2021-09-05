@@ -19,6 +19,22 @@ public class ArrayTest {
         numbers.insert(10);
         numbers.insert(10);
         assertEquals( 4, numbers.getLength());
+    }
+    @Test public void testCanRetrieveFirstRepeatingItem(){
+        Array numbers = new Array(2);
+        numbers.insert(10);
+        numbers.insert(20);
+        numbers.insert(30);
+        numbers.insert(20);
+        assertEquals(20, numbers.firstDuplicate());
+    }
+    @Test public void canGetTheIndexOfAnItem(){
+        Array numbers = new Array(2);
+        numbers.insert(10);
+        numbers.insert(20);
+        numbers.insert(30);
+        numbers.insert(20);
+        assertEquals(0, numbers.indexOf(10));
 
     }
     

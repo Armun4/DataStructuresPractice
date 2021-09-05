@@ -71,6 +71,7 @@ public class Array {
             return items[i];
         }else{
             seen.add(items[i]);
+
         }
         return -1;
     }
