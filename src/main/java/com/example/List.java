@@ -134,6 +134,22 @@ public class List {
         }
         return a.value;
     }
+    public int getMiddleNode(){
+        Node a = first;
+        Node aNext = a.next;
+        Node b = first;
+
+        while(b.next != last && b != last){
+           a= a.next;
+           b = b.next.next;
+        }
+        if (b == last){
+            return a.value;
+        }else {
+        return a.value aNext.value;
+        }
+
+    }
 
     private boolean isEmpty() {
         return first == null;
