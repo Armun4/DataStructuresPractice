@@ -134,9 +134,8 @@ public class List {
         }
         return a.value;
     }
-    public int getMiddleNode(){
+    public String getMiddleNode(){
         Node a = first;
-        Node aNext = a.next;
         Node b = first;
 
         while(b.next != last && b != last){
@@ -144,9 +143,9 @@ public class List {
            b = b.next.next;
         }
         if (b == last){
-            return a.value;
+            return Integer.toString(a.value);
         }else {
-        return a.value aNext.value;
+        return Integer.toString(a.value) + ',' + Integer.toString(a.next.value);
         }
 
     }
