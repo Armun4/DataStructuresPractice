@@ -11,18 +11,18 @@ public class StringEvaluator {
     private final List LeftBrackets = Arrays.asList('(', '[', '{', '<');
 
     public Boolean isBalanced(String input) {
-        Stack<Character> Evaluator = new Stack();
+        Stack<Character> stack = new Stack();
         for( char c : input.toCharArray()){
-            if (isLeftBracket(c)) Evaluator.push(c);
+            if (isLeftBracket(c)) stack.push(c);
 
             if (isRightBracket(c)){
-                if (Evaluator.isEmpty()) return false;
+                if (stack.isEmpty()) return false;
 
-               char top = Evaluator.pop();
+               char top = stack.pop();
                if(!bracketsMatch(top, c)) return false;
             }
         }
-        return Evaluator.isEmpty();
+        return stack.isEmpty();
     }
 
     private boolean isRightBracket(char c) {
