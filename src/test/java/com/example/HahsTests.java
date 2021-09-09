@@ -3,7 +3,7 @@ package com.example;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class StackTests {
+public class HahsTests {
     @Test public void testThatCanRetrieveFirstNonRepentingCharacter(){
         HashExercises hashTable = new HashExercises();
         char result = hashTable.firstNonDuplicated("aabbcxcdsd");
