@@ -1,6 +1,5 @@
-package com.example;
+package com.example.Sort;
 
-import com.sortingAlgorithms.BubbleSort;
 import com.sortingAlgorithms.SelectionSort;
 import org.junit.Test;
 

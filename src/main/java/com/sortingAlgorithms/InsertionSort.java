@@ -1,4 +1,4 @@
-package com.sortingAlgorithms.Algo;
+package com.sortingAlgorithms;
 
 public class InsertionSort {
     public void sort(int[] a){
